@@ -8,7 +8,8 @@ class HornedBeast extends Component {
             favorites: 0
         }
     }
-
+    
+    //using an arrow function here prevents context from being set to function scope
     favorite = () => {
         this.setState({favorites: this.state.favorites + 1});
     }
