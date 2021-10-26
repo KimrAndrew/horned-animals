@@ -1,12 +1,22 @@
 import { Component } from "react";
 import HornedBeast from "./HornedBeast.js";
+import data from "./assets/data.json";
 
 class Main extends Component {
+    //returns an array of <HornedBeast /> components
+    unleashTheBeasts() {
+        let beasts = [];
+        data.forEach(beast => {
+            beasts.push(<HornedBeast imageUrl={beast.image_url} title={beast.title} description={beast.description} keyword = {beast.keyword} horns={beast.horns} />);
+        });
+        return beasts;
+    }
+    //huh, wasn't expecting that to actually work
+    //was not expecting to be able to just render an array of components
     render() {
         return (
             <>
-                <HornedBeast imageUrl={'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'} title={"Uniwhal"} description={"A unicorn and a narwhal nuzzling their horns"} />
-                <HornedBeast imageUrl={"https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80"}  title={"Rhino Family"} description={"Parent rhino with two babies"}/>
+                {this.unleashTheBeasts()}
             </>
         )
     }
