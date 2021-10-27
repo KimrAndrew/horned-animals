@@ -6,11 +6,7 @@ import Row from "react-bootstrap/Row";
 class Main extends Component {
     //returns an array of <HornedBeast /> components
     unleashTheBeasts() {
-        let beasts = [];
-        data.forEach(beast => {
-            beasts.push(<HornedBeast imageUrl={beast.image_url} title={beast.title} description={beast.description} keyword = {beast.keyword} horns={beast.horns} />);
-        });
-        return beasts;
+        return data.map(beast => <HornedBeast beast={beast} />);
     }
     //huh, wasn't expecting that to actually work
     //was not expecting to be able to just render an array of components
