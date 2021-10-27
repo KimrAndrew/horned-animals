@@ -1,12 +1,30 @@
 import { Component } from "react";
-
+import Card from "react-bootstrap/Card";
 class HornedBeast extends Component {
-    render() {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            favorites: 0
+        }
+    }
+    
+    //using an arrow function here prevents context from being set to function scope
+    favorite = () => {
+        this.setState({favorites: this.state.favorites + 1});
+    }
+
+    render =() => {
         return (
             <>
-                <h2>{this.props.title}</h2>
-                <img src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
-                <p>{this.props.description}</p>
+                <Card style={{ maxWidth: '18rem'}}>
+                    <Card.Img onClick={this.favorite} variant='top' style = {{maxWidth: '18rem'}} src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
+                    <Card.Body>
+                        <Card.Title><h2>{this.props.title}</h2></Card.Title>
+                        <Card.Text>{this.props.description}</Card.Text>
+                        <Card.Text><span>❤️</span><span>{this.state.favorites}</span></Card.Text>
+                    </Card.Body>
+                </Card>
             </>
         )
     }
