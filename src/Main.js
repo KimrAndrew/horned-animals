@@ -1,6 +1,7 @@
 import { Component } from "react";
 import HornedBeast from "./HornedBeast.js";
 import data from "./assets/data.json";
+import Card from "react-bootstrap/Card";
 
 class Main extends Component {
     //returns an array of <HornedBeast /> components
@@ -15,7 +16,7 @@ class Main extends Component {
     //was not expecting to be able to just render an array of components
     render() {
         return (
-            <>
+            <>  
                 {this.unleashTheBeasts()}
             </>
         )
