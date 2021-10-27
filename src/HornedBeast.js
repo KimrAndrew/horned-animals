@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Card from "react-bootstrap/Card";
+
 class HornedBeast extends Component {
 
     constructor(props) {
@@ -16,11 +17,11 @@ class HornedBeast extends Component {
 
     render =() => {
         return (
-            <>
-                <Card style={{ maxWidth: '18rem'}}>
-                    <Card.Img onClick={this.favorite} variant='top' style = {{maxWidth: '18rem'}} src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
+            <>  
+                <Card style={{ width: '18rem'}}>
+                    <Card.Img onClick={this.favorite} variant='top' src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
                     <Card.Body>
-                        <Card.Title><h2>{this.props.title}</h2></Card.Title>
+                        <Card.Title as='h2'>{this.props.title}</Card.Title>
                         <Card.Text>{this.props.description}</Card.Text>
                         <Card.Text><span>❤️</span><span>{this.state.favorites}</span></Card.Text>
                     </Card.Body>
