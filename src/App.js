@@ -10,7 +10,8 @@ export default class App extends Component {
   super(props);
     this.state = {
       selectedBeast: {},
-      show: false
+      show: false,
+      displayedBeasts: beasts
     }
   }
 
@@ -35,6 +36,10 @@ export default class App extends Component {
     })
   }
 
+  filterByHorns = (arr) => {
+    this.setState({displayedBeasts: arr});
+  }
+
   closeModal = () => {
     this.setState({show: false});
   }
@@ -42,8 +47,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <Main selectBeast={this.selectBeast} beasts={beasts}/>
+        <Header beastFilter={this.filterByHorns} beasts={beasts}/>
+        <Main selectBeast={this.selectBeast} beasts={this.state.displayedBeasts}/>
         <Footer />
         <SelectedBeast closeModal={this.closeModal} show={this.state.show} beast={this.state.selectedBeast}/>
       </div>
