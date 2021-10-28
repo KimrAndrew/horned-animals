@@ -5,10 +5,9 @@ import Row from "react-bootstrap/Row";
 class Main extends Component {
     //returns an array of <HornedBeast /> components
     unleashTheBeasts() {
-        return this.props.beasts.map(beast => <HornedBeast beast={beast} />);
+        return this.props.beasts.map(beast => <HornedBeast selectBeast={this.props.selectBeast} beast={beast} key={beast.title}/>);
     }
-    //huh, wasn't expecting that to actually work
-    //was not expecting to be able to just render an array of components
+
     render() {
         return (
             <>  
