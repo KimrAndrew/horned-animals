@@ -11,18 +11,19 @@ class HornedBeast extends Component {
     }
     
     //using an arrow function here prevents context from being set to function scope
-    favorite = () => {
+    clickHandler = () => {
         this.setState({favorites: this.state.favorites + 1});
+        this.props.selectBeast(this.props.beast.title);
     }
 
     render =() => {
         return (
             <>  
                 <Card style={{ width: '18rem'}}>
-                    <Card.Img onClick={this.favorite} variant='top' src={this.props.imageUrl} alt={this.props.description} title={this.props.title} />
+                    <Card.Img onClick={this.clickHandler} variant='top' src={this.props.beast.image_url} alt={this.props.beast.description} title={this.props.beast.title} />
                     <Card.Body>
-                        <Card.Title as='h2'>{this.props.title}</Card.Title>
-                        <Card.Text>{this.props.description}</Card.Text>
+                        <Card.Title as='h2'>{this.props.beast.title}</Card.Title>
+                        <Card.Text>{this.props.beast.description}</Card.Text>
                         <Card.Text><span>❤️</span><span>{this.state.favorites}</span></Card.Text>
                     </Card.Body>
                 </Card>

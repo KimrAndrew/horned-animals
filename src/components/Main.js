@@ -1,19 +1,13 @@
 import { Component } from "react";
 import HornedBeast from "./HornedBeast.js";
-import data from "./assets/data.json";
 import Row from "react-bootstrap/Row";
 
 class Main extends Component {
     //returns an array of <HornedBeast /> components
     unleashTheBeasts() {
-        let beasts = [];
-        data.forEach(beast => {
-            beasts.push(<HornedBeast imageUrl={beast.image_url} title={beast.title} description={beast.description} keyword = {beast.keyword} horns={beast.horns} />);
-        });
-        return beasts;
+        return this.props.beasts.map(beast => <HornedBeast selectBeast={this.props.selectBeast} beast={beast} key={beast.title}/>);
     }
-    //huh, wasn't expecting that to actually work
-    //was not expecting to be able to just render an array of components
+
     render() {
         return (
             <>  
